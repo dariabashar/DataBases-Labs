@@ -54,7 +54,7 @@ CREATE OR REPLACE FUNCTION calculate_bonus(emp_id integer)
 DECLARE
     bonus_amount NUMERIC;
 BEGIN
-    SELECT salary * 0.1 INTO bonus_amount FROM employees WHERE id = emp_id;
+    SELECT salary * 0.05 INTO bonus_amount FROM employees WHERE id = emp_id;
     RETURN bonus_amount;
 END;
 $$ LANGUAGE plpgsql;
