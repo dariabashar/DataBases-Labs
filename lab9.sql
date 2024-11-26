@@ -49,7 +49,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 --6
-CREATE OR REPLACE FUNCTION calculate_bonus(emp_id INT)
+CREATE OR REPLACE FUNCTION calculate_bonus(emp_id integer)
     RETURNS NUMERIC AS $$
 DECLARE
     bonus_amount NUMERIC;
@@ -59,10 +59,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION update_salary(emp_id INT)
+CREATE OR REPLACE FUNCTION update_salary(emp_id integer)
     RETURNS VOID AS $$
 DECLARE
-    bonus NUMERIC;
+    bonus numeric;
 BEGIN
     bonus := calculate_bonus(emp_id);
     UPDATE employees SET salary = salary + bonus WHERE id = emp_id;
@@ -70,11 +70,11 @@ END;
 $$ LANGUAGE plpgsql;
 
 --7
-CREATE OR REPLACE FUNCTION complex_calculation(num_param INT, str_param VARCHAR)
+CREATE OR REPLACE FUNCTION complex_calculation(num_param integer, str_param varchar)
     RETURNS TEXT AS $$
 DECLARE
-    numeric_result INT;
-    string_result VARCHAR;
+    numeric_result integer;
+    string_result varchar;
 BEGIN
     -- Subblock1: Numeric Computation
     numeric_result := num_param * 10;
