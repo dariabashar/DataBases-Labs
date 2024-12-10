@@ -51,7 +51,7 @@ DECLARE
 BEGIN
     SELECT quantity INTO available_quantity FROM Books WHERE book_id = 3;
     IF available_quantity < 10 THEN
-        RAISE NOTICE 'Not enough books>';
+        RAISE NOTICE 'Not enough books';
         ROLLBACK;
     ELSE
         INSERT INTO Orders (book_id, customer_id, order_date, quantity)
@@ -69,7 +69,7 @@ END $$;
 BEGIN;
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
 UPDATE Books
-SET price = 55.00
+SET price = 580803085.34
 WHERE book_id = 3;
 
 --session2
